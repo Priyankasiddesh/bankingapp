@@ -12,7 +12,7 @@ public class TransactionServiceImpl implements TransactionService{
 
 	
 	public  List<Transaction> getTransactions() {
-		List<Transaction> account = transrepo.getTransactions();//to send the request to accountDao layer
+		List<Transaction> account = transrepo.getTransactions();
 		  return account;
 	}
 
@@ -30,6 +30,15 @@ public class TransactionServiceImpl implements TransactionService{
 	public int balance(Transaction account) {
 	 return transrepo.balance(account);
 	}
-	
+	public Transaction getTransactionById(int id) {
+		return transrepo.findById(id);
+	}
+
+
+	@Override
+	public Transaction findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }

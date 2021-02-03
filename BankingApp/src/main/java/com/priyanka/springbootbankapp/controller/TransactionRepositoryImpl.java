@@ -11,19 +11,22 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 @Repository
 public class TransactionRepositoryImpl extends Jdbc implements TransactionRepository {
-
+	
 	String SQL1 = "SELECT * FROM Transaction";
 	public List<Transaction> getTransactions() {
 		 List<Transaction> acc = null ;
 		 try {
-			   acc = jdbcTemplate.query(SQL1,new BeanPropertyRowMapper<Transaction>(Transaction.class));  //to map the row of account using bean property 
+			   acc = jdbcTemplate.query(SQL1,new BeanPropertyRowMapper<Transaction>(Transaction.class));  //to map the row of transaction using bean property 
 			  } 
 		 catch (DataAccessException e) {
 			   e.printStackTrace();
 			  }
-			  return acc; // returns the list of account
+			  return acc; // returns the list of transactions
 		
 	}
+	
+	//String SQL5="SELECT * FROM Transaction where transid=?"
+	
 	String SQL2 = "update Transaction a set a.balance=?,a.deposit=? where a.custid=?";
 	public List<Transaction_deposit_response_entity> deposit(int custId,int amount) {
 		List<Transaction_deposit_response_entity> listOfEntities = new ArrayList<Transaction_deposit_response_entity>();
@@ -86,6 +89,12 @@ public class TransactionRepositoryImpl extends Jdbc implements TransactionReposi
 	public int balance(Transaction transaction) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	@Override
+	public Transaction findById(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 
 	//String SQL3 = "INSERT INTO account(accountnum,name,balance)VALUES(?,?,?)";

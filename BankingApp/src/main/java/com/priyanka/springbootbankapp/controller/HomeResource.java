@@ -21,7 +21,9 @@ public class HomeResource {
 	@Autowired
 	private AccountService accountService;
 	@Autowired
-	private TransactionServiceImpl trans;
+	private TransactionRepositoryImpl trans;
+	@Autowired
+	private TransactionServiceImpl transim;
 	@GetMapping("/")
 	public String home() {
 		return("<h3>Welcome</h3>");
@@ -45,11 +47,25 @@ public class HomeResource {
 	        return accountService.getAllAccount();
 		 
 	 }
+	 @RequestMapping(value="/account/{id}",method=RequestMethod.GET,produces="application/json")
+	 public Account getAccountById(
+			 @PathVariable(value = "id") int id) 
+	 {
+		 System.out.println(id);
+		 return accountService.getAccountById(id);
+	 }	   // @GetMapping("/transaction")
+
+	 
 	 @RequestMapping(value="/transaction", method = RequestMethod.GET, produces = "application/json") 
 		public  List<Transaction> getTransactions() {
 			return trans.getTransactions();
 		}
-
+	 
+	 @RequestMapping(value="/transaction/{id}", method = RequestMethod.GET, produces = "application/json") 
+	 public Transaction getTransactionById(@PathVariable(value="id") int id) {
+		 return transim.getTransactionById(id);
+	 }
+	 
 	 @RequestMapping(value = "/transaction/deposit/{custId}/{amount}", method = RequestMethod.POST, produces = "application/json")
 	 public List<Transaction_deposit_response_entity> deposit(@PathVariable int custId,@PathVariable int amount) {
 
