@@ -34,8 +34,10 @@ public class AccountService  {
 	    }
 
 	    // GET
-	    public Account getAccountById(int id) {
-	    
+	    public Optional<Account> getAccountById(int id) {
+			 System.out.println(id);
+			 System.out.println(accountRepository.findById(id));
+
 	        return accountRepository.findById(id);
 	    }
 

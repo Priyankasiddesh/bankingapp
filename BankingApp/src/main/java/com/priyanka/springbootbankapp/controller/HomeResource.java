@@ -47,13 +47,13 @@ public class HomeResource {
 	        return accountService.getAllAccount();
 		 
 	 }
-	 @RequestMapping(value="/account/{id}",method=RequestMethod.GET,produces="application/json")
-	 public Account getAccountById(
-			 @PathVariable(value = "id") int id) 
+	 @RequestMapping(value="/account/{accid}",method=RequestMethod.GET,produces="application/json")
+	 public Optional<Account> getAccountById(
+			 @PathVariable(value = "accid") int id) 
 	 {
 		 System.out.println(id);
 		 return accountService.getAccountById(id);
-	 }	   // @GetMapping("/transaction")
+	 }	  
 
 	 
 	 @RequestMapping(value="/transaction", method = RequestMethod.GET, produces = "application/json") 
@@ -62,7 +62,9 @@ public class HomeResource {
 		}
 	 
 	 @RequestMapping(value="/transaction/{id}", method = RequestMethod.GET, produces = "application/json") 
-	 public Transaction getTransactionById(@PathVariable(value="id") int id) {
+	 public Optional<Transaction> getTransactionById(@PathVariable(value="id") int id) {
+		 System.out.println(id);
+
 		 return transim.getTransactionById(id);
 	 }
 	 
