@@ -1,8 +1,12 @@
-package com.priyanka.springbootbankapp.controller;
+package com.priyanka.springbootbankapp.service;
 
 import java.util.List;
 
 import org.springframework.data.repository.CrudRepository;
+
+import com.priyanka.springbootbankapp.entity.Transaction;
+import com.priyanka.springbootbankapp.response.entity.Transaction_deposit_response_entity;
+import com.priyanka.springbootbankapp.response.entity.Transaction_withdraw_response_entity;
 
 public interface TransactionService extends CrudRepository<Transaction,Integer> {
 	public  List<Transaction> getTransactions() ;

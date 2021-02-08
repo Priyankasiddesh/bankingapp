@@ -1,4 +1,4 @@
-package com.priyanka.springbootbankapp.controller;
+package com.priyanka.springbootbankapp.response.entity;
 
 public class Transaction_withdraw_response_entity {
 	public Transaction_withdraw_response_entity() {

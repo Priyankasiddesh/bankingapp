@@ -1,4 +1,4 @@
-package com.priyanka.springbootbankapp.controller;
+package com.priyanka.springbootbankapp.response.entity;
 
 public class Transaction_deposit_response_entity {
 	private int custId;

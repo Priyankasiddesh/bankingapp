@@ -1,4 +1,4 @@
-package com.priyanka.springbootbankapp.controller;
+package com.priyanka.springbootbankapp.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.priyanka.springbootbankapp.controller;
+package com.priyanka.springbootbankapp.service;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,7 +12,10 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
+
+import com.priyanka.springbootbankapp.entity.Account;
 import com.priyanka.springbootbankapp.jdbc.Jdbc;
+import com.priyanka.springbootbankapp.repository.AccountRepository;
 
 
 @Service

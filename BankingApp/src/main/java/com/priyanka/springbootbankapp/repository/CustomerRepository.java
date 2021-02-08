@@ -1,6 +1,8 @@
-package com.priyanka.springbootbankapp.controller;
+package com.priyanka.springbootbankapp.repository;
 
 import org.springframework.stereotype.Repository;
+
+import com.priyanka.springbootbankapp.entity.Customer;
 
 import java.util.List;
 
